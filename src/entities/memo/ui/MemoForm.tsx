@@ -9,6 +9,7 @@ import { useTags } from '@/shared/hooks/useTags';
 interface MemoFormProps {
   initialTitle?: string;
   initialContent?: string;
+  initialTags?: { name: string }[];
   onSubmit: (title: string, content: string, tags: { name: string }[]) => void;
   onBack?: () => void;
   submitButtonText: string;
@@ -19,6 +20,7 @@ interface MemoFormProps {
 export const MemoForm = ({
   initialTitle = '',
   initialContent = '',
+  initialTags = [],
   onSubmit,
   onBack,
   submitButtonText,
@@ -40,7 +42,7 @@ export const MemoForm = ({
     setShowTagInput,
     setEditTagIndex,
     setNewTag,
-  } = useTags({ initialTags: [] });
+  } = useTags({ initialTags });
 
   return (
     <MemoContainer>

@@ -64,6 +64,7 @@ export const EditMemo = () => {
     <MemoForm
       initialTitle={initialTitle}
       initialContent={initialContent}
+      initialTags={initialTags}
       onSubmit={onSubmit}
       onBack={() => navigate(-1)}
       submitButtonText="메모 수정"
