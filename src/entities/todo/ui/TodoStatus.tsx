@@ -1,21 +1,21 @@
-import { ButtonHTMLAttributes, useState } from 'react';
+import { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import checkIcon from '@/shared/assets/icons/check.svg';
-import { Status } from '../todo.type';
+import { ITodoStatus, Status } from '../todo.type';
+import { useTodoContext } from '../model/useTodoContext';
 
-interface ITodoStatus extends ButtonHTMLAttributes<HTMLButtonElement> {
-  status?: Status;
-}
-
-function TodoStatus({ status = 'TODO', ...props }: ITodoStatus): JSX.Element {
+function TodoStatus({ status = 'TODO', ...props }: ITodoStatus) {
   const [todoStatus, setTodoStatus] = useState<Status>(status);
+
+  const { toggle } = useTodoContext();
 
   const handleTodoStatus = () => {
     if (todoStatus === 'TODO') {
       setTodoStatus('PROCEEDING');
     } else if (todoStatus === 'PROCEEDING') {
       setTodoStatus('COMPLETED');
-    } else {
+      toggle(); // 이미지 업로드 모달 열기
+    } else if (todoStatus === 'COMPLETED') {
       setTodoStatus('TODO');
     }
   };

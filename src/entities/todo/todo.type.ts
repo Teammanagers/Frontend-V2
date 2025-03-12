@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 type ButtonType = 'menu' | 'alarm' | 'none';
 
@@ -27,4 +27,20 @@ interface ITeamTodoList {
   todoList: ItodoInfo[];
 }
 
-export type { Status, ITodo, ButtonType, ITeamTodoList };
+interface ITodoStatus extends ButtonHTMLAttributes<HTMLButtonElement> {
+  status?: Status;
+}
+
+interface IImageUplaodModalProps {
+  isOpen: boolean;
+  toggle: () => void;
+}
+
+export type {
+  Status,
+  ITodo,
+  ButtonType,
+  ITeamTodoList,
+  ITodoStatus,
+  IImageUplaodModalProps,
+};

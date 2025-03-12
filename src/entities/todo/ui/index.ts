@@ -4,3 +4,4 @@ export * from './Button';
 export * from './TodoStatus';
 export * from './StatusBadge';
 export * from './ProgressBar';
+export * from './ImageUploadModal';
