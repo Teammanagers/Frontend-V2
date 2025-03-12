@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-export const useAccordionToggle = () => {
+const useAccordionToggle = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const parentRef = useRef<HTMLDivElement>(null);
   const childRef = useRef<HTMLDivElement>(null);
@@ -21,3 +21,5 @@ export const useAccordionToggle = () => {
 
   return { isOpen, parentRef, childRef, toggleAccrodion };
 };
+
+export { useAccordionToggle };

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { AccordionProps } from './types.ts';
 import { AccordionHeader } from './Header.tsx';
 import { AccordionBody } from './Body.tsx';
 import { forwardRef } from 'react';
-import { useAccordionToggle } from './hooks/useAccordionToggle.ts';
+import { useAccordionToggle } from '@/shared/hooks/action/useAccordionToggle.ts';
+import { IAccordionProps } from '@/shared/types/accordion.types.ts';
 
 /**
  * Accordion 컴포넌트는 아코디언의 구성요소(Header, Body)를 감싸는 Container 컴포넌트입니다.
@@ -13,7 +13,7 @@ import { useAccordionToggle } from './hooks/useAccordionToggle.ts';
  * @param {string[]} tagList - 제목 옆에 표시될 태그 목록 (예: 기획자).
  */
 
-const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
+const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
   ({ children, title, tagList }) => {
     const { isOpen, toggleAccrodion, parentRef, childRef } =
       useAccordionToggle();

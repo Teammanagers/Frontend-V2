@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import chevronIcon from '@/shared/assets/common/rotating-chevron.svg';
-import { AccordionHeaderProps } from './types.ts';
-import { useAccordionToggle } from './hooks/useAccordionToggle.ts';
+import { IAccordionHeaderProps } from '@/shared/types';
 
 /**
  * AccordionHeader 컴포넌트는 아코디언의 헤더를 제공합니다.
@@ -12,14 +11,12 @@ import { useAccordionToggle } from './hooks/useAccordionToggle.ts';
  * @param {string[]} tagList - 아코디언의 태그 리스트.
  */
 
-export const AccordionHeader = ({
+function AccordionHeader({
   isOpen,
   onClick,
   title,
   tagList,
-}: AccordionHeaderProps) => {
-  const {} = useAccordionToggle();
-
+}: IAccordionHeaderProps) {
   return (
     <Container onClick={onClick} $isOpen={isOpen}>
       <TitleWrapper>
@@ -38,7 +35,9 @@ export const AccordionHeader = ({
       </IconWrapper>
     </Container>
   );
-};
+}
+
+export { AccordionHeader };
 
 const Container = styled.div<{ $isOpen: boolean }>`
   box-sizing: border-box;

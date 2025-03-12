@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import mocks from '@/entities/todo/mocks/get-todo-list.json';
 
-import { Accordion } from '@/shared/components/accordion/Accordion';
 import { ITeamTodoList } from '@/entities/todo/todo.type';
 import { Todo } from '@/entities/todo/ui';
+import { Accordion } from '@/shared/components/accordion';
 
 export function TodoList() {
   const mockData = mocks.result.teamTodoList as ITeamTodoList[];

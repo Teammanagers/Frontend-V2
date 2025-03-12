@@ -1,4 +1,4 @@
-import { statusLabel } from '@/entities/todo/model/status-label';
+import { statusLabel } from '@/entities/todo/constants/status-label';
 import { ProgressBar, StatusBadge } from '@/entities/todo/ui';
 import styled from 'styled-components';
 

@@ -10,4 +10,4 @@ const useToggle = (initialState = false) => {
   return { isOpen, setIsOpen, toggle };
 };
 
-export default useToggle;
+export { useToggle };
