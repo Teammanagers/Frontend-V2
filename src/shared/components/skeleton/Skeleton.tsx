@@ -1,6 +1,21 @@
 import { ISkeletonProps } from '@/shared/types/components/skeleton.types';
 import styled, { keyframes } from 'styled-components';
 
+/**
+ * Skeleton 컴포넌트는 로딩 상태를 시각적으로 나타내기 위해 사용됩니다.
+ *
+ * @param {number} width - Skeleton 컴포넌트의 너비
+ * @param {number} height - Skeleton 컴포넌트의 높이
+ *
+ * @example
+ * <Skeleton width={300} height={100} />
+ *
+ * @example
+ * {Array.from({ length: 3 }).map((_, index) => (
+ *   <Skeleton key={index} width={300} height={100} />
+ * ))}
+ */
+
 export default function Skeleton({ width, height }: ISkeletonProps) {
   return <Container $width={width} height={height} />;
 }
