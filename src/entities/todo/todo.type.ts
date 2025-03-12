@@ -1,12 +1,12 @@
-import { ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 
-type ButtonState = 'menu' | 'alarm' | 'none';
+type ButtonType = 'menu' | 'alarm' | 'none';
 
 type Status = 'TODO' | 'PROCEEDING' | 'COMPLETED';
 
 interface ITodo {
   children: ReactNode;
-  buttonState: ButtonState;
+  buttonType: ButtonType;
 }
 
 interface IRoleTag {
@@ -27,4 +27,20 @@ interface ITeamTodoList {
   todoList: ItodoInfo[];
 }
 
-export type { Status, ITodo, ButtonState, ITeamTodoList };
+interface ITodoStatus extends ButtonHTMLAttributes<HTMLButtonElement> {
+  status?: Status;
+}
+
+interface IImageUplaodModalProps {
+  isOpen: boolean;
+  toggle: () => void;
+}
+
+export type {
+  Status,
+  ITodo,
+  ButtonType,
+  ITeamTodoList,
+  ITodoStatus,
+  IImageUplaodModalProps,
+};

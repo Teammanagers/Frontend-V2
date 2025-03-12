@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Dropdown } from '@/shared/components/dropdown/compound/Dropdown';
-import useToggle from '@/shared/components/dropdown/hooks/useToggle';
 import dropdownIcon from '@/shared/assets/icons/dropdown.svg';
+import { useToggle } from '@/shared/hooks';
+import { Dropdown } from '@/shared/components/dropdown';
 
 function ActionDropdown() {
   const { isOpen, setIsOpen, toggle } = useToggle();
