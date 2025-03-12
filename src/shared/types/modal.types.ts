@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 
-interface IModal {
+interface IModalProps {
   children: ReactNode;
   isOpen: boolean;
   toggle: () => void;
 }
 
-export type { IModal };
+export type { IModalProps };

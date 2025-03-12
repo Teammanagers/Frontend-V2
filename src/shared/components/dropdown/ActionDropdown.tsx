@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import dropdownIcon from '@/shared/assets/icons/dropdown.svg';
 import { Dropdown } from '@/shared/components/dropdown';
+import { IActionDropdownProps } from '@/shared/types/components';
 
 function ActionDropdown({
   isOpen,
@@ -8,13 +9,7 @@ function ActionDropdown({
   toggle,
   editAction,
   deleteAction,
-}: {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  toggle: () => void;
-  editAction: () => void;
-  deleteAction: () => void;
-}) {
+}: IActionDropdownProps) {
   return (
     <Dropdown setIsOpen={setIsOpen}>
       <Dropdown.Trigger onClick={toggle}>

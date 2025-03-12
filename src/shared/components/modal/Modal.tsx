@@ -1,4 +1,4 @@
-import { IModal } from '@/shared/types/modal.types';
+import { IModalProps } from '@/shared/types';
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import styled, { keyframes } from 'styled-components';
@@ -11,7 +11,7 @@ import styled, { keyframes } from 'styled-components';
  * @param {ReactNode} children - 모달의 내용
  */
 
-export default function Modal({ children, isOpen, toggle }: IModal) {
+export default function Modal({ children, isOpen, toggle }: IModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   // 모달 열고 닫는 기본 로직
