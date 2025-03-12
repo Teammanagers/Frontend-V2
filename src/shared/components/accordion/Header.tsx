@@ -68,17 +68,11 @@ const TitleWrapper = styled.div`
 `;
 
 const TagList = styled.ul`
-  // ul 기본 속성 초기화
-  padding: 0;
-  margin: 0;
-  list-style: none;
   display: flex;
   gap: 8px;
 `;
 
 const Tag = styled.li<{ $isOpen: boolean }>`
-  // li 기본 속성 초기화
-  box-sizing: border-box;
   padding: 5px 8px;
   margin: 0;
   display: flex;
@@ -93,17 +87,6 @@ const Tag = styled.li<{ $isOpen: boolean }>`
 `;
 
 const IconWrapper = styled.button<{ $isOpen: boolean }>`
-  // button 기본 속성 초기화
-  background: none;
-  border: none;
-  padding: 0;
-  outline: none;
-  &:focus {
-    outline: none;
-  }
-  &:active {
-    outline: none;
-  }
   transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
   transition: transform 0.5s;
   cursor: pointer;

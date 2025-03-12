@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { AccordionHeader } from './Header.tsx';
 import { AccordionBody } from './Body.tsx';
-import { forwardRef } from 'react';
 import { useAccordionToggle } from '@/shared/hooks/action/useAccordionToggle.ts';
 import { IAccordionProps } from '@/shared/types/accordion.types.ts';
 
@@ -13,30 +12,23 @@ import { IAccordionProps } from '@/shared/types/accordion.types.ts';
  * @param {string[]} tagList - 제목 옆에 표시될 태그 목록 (예: 기획자).
  */
 
-const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
-  ({ children, title, tagList }) => {
-    const { isOpen, toggleAccrodion, parentRef, childRef } =
-      useAccordionToggle();
+const Accordion = ({ children, title, tagList }: IAccordionProps) => {
+  const { isOpen, toggleAccrodion, parentRef, childRef } = useAccordionToggle();
 
-    return (
-      <AccordionContainer>
-        <AccordionHeader
-          isOpen={isOpen}
-          onClick={toggleAccrodion}
-          title={title}
-          tagList={tagList}
-        />
-        <AccordionBody
-          isOpen={isOpen}
-          parentRef={parentRef}
-          childRef={childRef}
-        >
-          {children}
-        </AccordionBody>
-      </AccordionContainer>
-    );
-  },
-);
+  return (
+    <AccordionContainer>
+      <AccordionHeader
+        isOpen={isOpen}
+        onClick={toggleAccrodion}
+        title={title}
+        tagList={tagList}
+      />
+      <AccordionBody isOpen={isOpen} parentRef={parentRef} childRef={childRef}>
+        {children}
+      </AccordionBody>
+    </AccordionContainer>
+  );
+};
 
 Accordion.displayName = 'Accordion';
 

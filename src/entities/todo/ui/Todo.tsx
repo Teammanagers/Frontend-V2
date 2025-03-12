@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
 import styled from 'styled-components';
-import { ButtonState, ITodo } from '../todo.type';
+import { ReactNode } from 'react';
+import { ButtonType, ITodo } from '../todo.type';
 import { Button } from './Button';
 import { TodoStatus } from './TodoStatus';
 import { ActionDropdown } from './ActionDropdown';
@@ -12,8 +12,8 @@ import { ActionDropdown } from './ActionDropdown';
  * @param {ButtonState} buttonState - 버튼의 상태를 나타내는 값 ('menu', 'alarm', 'none').
  */
 
-function Todo({ children, buttonState }: ITodo) {
-  const buttonComponents: { [key in ButtonState]: ReactNode } = {
+function Todo({ children, buttonType }: ITodo) {
+  const buttonComponents: { [key in ButtonType]: ReactNode } = {
     menu: <ActionDropdown />,
     alarm: <Button>깨우기</Button>,
     none: null,
@@ -27,7 +27,7 @@ function Todo({ children, buttonState }: ITodo) {
           <Content>{children}</Content>
         </ContentWrapper>
 
-        {buttonComponents[buttonState]}
+        {buttonComponents[buttonType]}
       </InnerWrapper>
     </TodoContainer>
   );

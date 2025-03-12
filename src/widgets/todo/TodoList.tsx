@@ -16,15 +16,17 @@ export function TodoList() {
       <TodosWrapper>
         {mockData.map((teamMember) => (
           <Accordion
+            key={teamMember.teamManageId}
             title={teamMember.name}
             tagList={teamMember.roleTagList.map((tag) => tag.name)}
           >
-            {teamMember.todoList.map((todo) => (
+            {teamMember.todoList.map((todo, idx) => (
               <Todo
-                buttonState={
+                buttonType={
                   // 내 투두이면 'menu', 아니면 'alarm' 버튼을 렌더링
                   myTodoId === teamMember.teamManageId ? 'menu' : 'alarm'
                 }
+                key={`${teamMember.teamManageId}-todo-${todo.todoId}-${idx}`}
               >
                 {todo.title}
               </Todo>
