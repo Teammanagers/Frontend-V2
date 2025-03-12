@@ -16,11 +16,11 @@ import { useToggle } from '@/shared/hooks';
 function Todo({ children, buttonType }: ITodo) {
   const { isOpen, setIsOpen, toggle } = useToggle();
 
-  const handleClickEditBtn = () => {
+  const handleEditAction = () => {
     toggle();
     // 수정 시 로직 추가
   };
-  const handleClickDeleteBtn = () => {
+  const handleDeleteAction = () => {
     toggle();
     // 삭제 시 로직 추가
   };
@@ -31,8 +31,8 @@ function Todo({ children, buttonType }: ITodo) {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         toggle={toggle}
-        editAction={handleClickEditBtn}
-        deleteAction={handleClickDeleteBtn}
+        editAction={handleEditAction}
+        deleteAction={handleDeleteAction}
       />
     ),
     alarm: <Button>깨우기</Button>,

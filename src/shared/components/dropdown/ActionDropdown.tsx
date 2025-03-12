@@ -3,6 +3,41 @@ import dropdownIcon from '@/shared/assets/icons/dropdown.svg';
 import { Dropdown } from '@/shared/components/dropdown';
 import { IActionDropdownProps } from '@/shared/types/components';
 
+/**
+ * ActionDropdown 컴포넌트는 수정 및 삭제 버튼을 포함한 드롭다운 메뉴를 렌더링합니다.
+ * 투두, 메모 등의 항목에 사용됩니다.
+ *
+ * @param {boolean} isOpen - 드롭다운 메뉴의 열림 상태.
+ * @param {React.Dispatch<React.SetStateAction<boolean>>} setIsOpen - 드롭다운 메뉴의 열림/닫힌 상태를 설정하는 함수.
+ * @param {() => void} toggle - 드롭다운 메뉴의 열림/닫힘 상태를 토글하는 함수.
+ * @param {() => void} editAction - 수정 버튼 클릭 시 실행되는 핸들러 함수.
+ * @param {() => void} deleteAction - 삭제 버튼 클릭 시 실행되는 핸들러 함수.
+ * @returns
+ *
+ * @example
+ * ```tsx
+ *
+ *   const { isOpen, setIsOpen, toggle } = useToggle();
+ *
+ *  const handleEditAction = () => {
+ *  // 수정 시 로직 추가
+ *   toggle();
+ *  }
+ *  const handleDeleteAction = () => {
+ * // 삭제 시 로직 추가
+ *  toggle();
+ * }
+ *
+ * <ActionDropdown
+ *   isOpen={isOpen}
+ *   setIsOpen={setIsOpen}
+ *   toggle={toggle}
+ *   editAction={editAction}
+ *   deleteAction={deleteAction}
+ * />
+ * ```
+ */
+
 function ActionDropdown({
   isOpen,
   setIsOpen,
