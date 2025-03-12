@@ -21,9 +21,11 @@ export default function Modal({ children, isOpen, toggle }: IModal) {
       dialogRef.current?.scrollTo({
         top: 0,
       });
+      document.body.style.overflow = 'hidden'; // 배경스크롤 방지
     } else {
       const timer = setTimeout(() => {
         dialogRef.current?.close();
+        document.body.style.overflow = ''; // 배경 스크롤 방지
       }, 200); // 애니메이션 시간보다 조금 더 빠르게
 
       return () => clearTimeout(timer);
@@ -83,10 +85,9 @@ const Dialog = styled.dialog<{ $isOpen: boolean }>`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 300px;
   padding: 0;
   border: none;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: transparent;
   animation: ${({ $isOpen }) => ($isOpen ? fadeIn : fadeOut)} 0.4s ease;
 
   &[open]::backdrop {
