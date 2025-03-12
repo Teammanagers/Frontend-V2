@@ -16,13 +16,13 @@ import { useToggle } from '@/shared/hooks';
 function Todo({ children, buttonType }: ITodo) {
   const { isOpen, setIsOpen, toggle } = useToggle();
 
-  const handleEditAction = () => {
+  const handleMenuAction = (menu: string) => {
+    if (menu === '수정') {
+      // 수정 로직
+    } else if (menu === '삭제') {
+      // 삭제 로직
+    }
     toggle();
-    // 수정 시 로직 추가
-  };
-  const handleDeleteAction = () => {
-    toggle();
-    // 삭제 시 로직 추가
   };
 
   const buttonComponents: { [key in ButtonType]: ReactNode } = {
@@ -31,8 +31,8 @@ function Todo({ children, buttonType }: ITodo) {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         toggle={toggle}
-        editAction={handleEditAction}
-        deleteAction={handleDeleteAction}
+        action={handleMenuAction}
+        menus={['수정', '삭제']}
       />
     ),
     alarm: <Button>깨우기</Button>,

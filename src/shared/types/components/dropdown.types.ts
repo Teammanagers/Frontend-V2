@@ -2,8 +2,8 @@ interface IActionDropdownProps {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   toggle: () => void;
-  editAction: () => void;
-  deleteAction: () => void;
+  action: (menu: string) => void;
+  menus: string[];
 }
 
 export type { IActionDropdownProps };
