@@ -10,7 +10,7 @@ import styled from 'styled-components';
  * @param {React.RefObject<HTMLDivElement>} childRef - 자식 요소의 ref.
  */
 
-export const AccordionBody = ({
+function AccordionBody({
   children,
   isOpen,
   parentRef,
@@ -20,7 +20,7 @@ export const AccordionBody = ({
   isOpen: boolean;
   parentRef: React.RefObject<HTMLDivElement>;
   childRef: React.RefObject<HTMLDivElement>;
-}) => {
+}) {
   return (
     <Container ref={parentRef} $isOpen={isOpen}>
       <BodyWrapper ref={childRef} $isOpen={isOpen}>
@@ -28,7 +28,9 @@ export const AccordionBody = ({
       </BodyWrapper>
     </Container>
   );
-};
+}
+
+export { AccordionBody };
 
 const Container = styled.div<{ $isOpen: boolean }>`
   height: 0;

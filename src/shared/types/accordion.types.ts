@@ -3,13 +3,12 @@ interface Props {
   tagList?: string[];
 }
 
-interface AccordionProps extends Props {
+interface IAccordionProps extends Props {
   children: React.ReactNode;
 }
-
-interface AccordionHeaderProps extends Props {
+interface IAccordionHeaderProps extends Props {
   isOpen: boolean;
   onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
-export type { AccordionProps, AccordionHeaderProps };
+export type { IAccordionProps, IAccordionHeaderProps };
