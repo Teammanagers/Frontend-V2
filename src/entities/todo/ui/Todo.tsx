@@ -3,7 +3,8 @@ import { ReactNode } from 'react';
 import { ButtonType, ITodo } from '../todo.type';
 import { Button } from './Button';
 import { TodoStatus } from './TodoStatus';
-import { ActionDropdown } from './ActionDropdown';
+import { ActionDropdown } from '../../../shared/components/dropdown/ActionDropdown';
+import { useToggle } from '@/shared/hooks';
 
 /**
  * Todo 컴포넌트는 할 일 항목을 렌더링합니다.
@@ -13,8 +14,27 @@ import { ActionDropdown } from './ActionDropdown';
  */
 
 function Todo({ children, buttonType }: ITodo) {
+  const { isOpen, setIsOpen, toggle } = useToggle();
+
+  const handleClickEditBtn = () => {
+    toggle();
+    // 수정 시 로직 추가
+  };
+  const handleClickDeleteBtn = () => {
+    toggle();
+    // 삭제 시 로직 추가
+  };
+
   const buttonComponents: { [key in ButtonType]: ReactNode } = {
-    menu: <ActionDropdown />,
+    menu: (
+      <ActionDropdown
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        toggle={toggle}
+        editAction={handleClickEditBtn}
+        deleteAction={handleClickDeleteBtn}
+      />
+    ),
     alarm: <Button>깨우기</Button>,
     none: null,
   };

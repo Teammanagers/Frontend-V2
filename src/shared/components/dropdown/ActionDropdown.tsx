@@ -1,11 +1,20 @@
 import styled from 'styled-components';
 import dropdownIcon from '@/shared/assets/icons/dropdown.svg';
-import { useToggle } from '@/shared/hooks';
 import { Dropdown } from '@/shared/components/dropdown';
 
-function ActionDropdown() {
-  const { isOpen, setIsOpen, toggle } = useToggle();
-
+function ActionDropdown({
+  isOpen,
+  setIsOpen,
+  toggle,
+  editAction,
+  deleteAction,
+}: {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  toggle: () => void;
+  editAction: () => void;
+  deleteAction: () => void;
+}) {
   return (
     <Dropdown setIsOpen={setIsOpen}>
       <Dropdown.Trigger onClick={toggle}>
@@ -14,8 +23,8 @@ function ActionDropdown() {
 
       <Dropdown.Menu isOpen={isOpen} top="10px" left="-50%">
         <MenuWrapper>
-          <ModifyButton onClick={toggle}>수정</ModifyButton>
-          <DeleteButton onClick={toggle}>삭제</DeleteButton>
+          <ModifyButton onClick={editAction}>수정</ModifyButton>
+          <DeleteButton onClick={deleteAction}>삭제</DeleteButton>
         </MenuWrapper>
       </Dropdown.Menu>
     </Dropdown>
@@ -29,28 +38,23 @@ const MenuWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 8px;
   width: 55px;
   height: 50px;
   border-radius: 3px;
   box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.1);
-
-  button {
-    width: 19px;
-    height: 15px;
-    font-size: 10px;
-    font-weight: 400;
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-  }
 `;
 
 const MenuItem = styled.button`
+  width: 100%;
+  height: 100%;
   font-size: 10px;
   font-weight: 400;
+  font-size: 10px;
+  font-weight: 400;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.background};
+  }
 `;
 
 const ModifyButton = styled(MenuItem)`
