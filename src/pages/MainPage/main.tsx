@@ -1,5 +1,6 @@
 import { NoticeBanner } from '@/entities/notice/ui';
 import TeamCodeCopy from '@/entities/notice/ui/TeamCodeCopy';
+import UpcomingScheduleList from '@/widgets/main/UpcomingScheduleList';
 import styled from 'styled-components';
 
 export function MainPage() {
@@ -11,6 +12,13 @@ export function MainPage() {
         {/* 팀 코드 복사 */}
         <TeamCodeCopy />
       </MainHeader>
+
+      <SectionWrapper>
+        <UpcomingScheduleList />
+        <UpcomingScheduleList />
+        <UpcomingScheduleList />
+        <UpcomingScheduleList />
+      </SectionWrapper>
     </Container>
   );
 }
@@ -19,6 +27,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 32px;
   padding-top: 74px;
 `;
 
@@ -27,4 +36,12 @@ const MainHeader = styled.header`
   align-items: center;
   justify-content: center;
   gap: 17px;
+`;
+
+const SectionWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 32px;
+  width: 1056px;
 `;
