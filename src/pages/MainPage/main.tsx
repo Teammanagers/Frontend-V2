@@ -1,6 +1,6 @@
 import { NoticeBanner } from '@/entities/notice/ui';
 import TeamCodeCopy from '@/entities/notice/ui/TeamCodeCopy';
-import UpcomingScheduleList from '@/widgets/main/UpcomingScheduleList';
+import { TodoList, UpcomingScheduleList } from '@/widgets/main';
 import styled from 'styled-components';
 
 export function MainPage() {
@@ -15,7 +15,7 @@ export function MainPage() {
 
       <SectionWrapper>
         <UpcomingScheduleList />
-        <UpcomingScheduleList />
+        <TodoList />
         <UpcomingScheduleList />
         <UpcomingScheduleList />
       </SectionWrapper>

@@ -2,7 +2,7 @@ import { RoutingButton } from '@/entities/main/ui/RoutingButton';
 import { UpcomingSchedule } from '@/entities/schedule/ui';
 import styled from 'styled-components';
 
-export default function UpcomingScheduleList() {
+function UpcomingScheduleList() {
   return (
     <Container>
       <RoutingButton url="/calendar">다가오는 일정</RoutingButton>
@@ -15,6 +15,8 @@ export default function UpcomingScheduleList() {
     </Container>
   );
 }
+
+export { UpcomingScheduleList };
 
 const Container = styled.section`
   display: flex;

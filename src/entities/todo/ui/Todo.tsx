@@ -9,7 +9,7 @@ import { ActionDropdown } from './ActionDropdown';
  * Todo 컴포넌트는 할 일 항목을 렌더링합니다.
  *
  * @param {ReactNode} children - 할 일 항목의 내용.
- * @param {ButtonState} buttonState - 버튼의 상태를 나타내는 값 ('menu', 'alarm', 'none').
+ * @param {ButtonState} buttonType - 버튼의 상태를 나타내는 값 ('menu', 'alarm', 'none').
  */
 
 function Todo({ children, buttonType }: ITodo) {
@@ -35,7 +35,7 @@ function Todo({ children, buttonType }: ITodo) {
 
 export { Todo };
 
-const TodoContainer = styled.li`
+const TodoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
