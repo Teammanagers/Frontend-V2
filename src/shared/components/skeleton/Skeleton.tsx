@@ -17,7 +17,7 @@ import styled, { keyframes } from 'styled-components';
  */
 
 export default function Skeleton({ width, height }: ISkeletonProps) {
-  return <Container $width={width} height={height} />;
+  return <Container $width={width} $height={height} />;
 }
 
 const SkeletonLoading = keyframes`
@@ -28,9 +28,9 @@ const SkeletonLoading = keyframes`
     background-color: #E6EDF5;
   }`;
 
-const Container = styled.div<{ $width: number; height: number }>`
+const Container = styled.div<{ $width: number; $height: number }>`
   width: ${({ $width }) => $width}px;
-  height: ${({ height }) => height}px;
+  height: ${({ $height }) => $height}px;
   border-radius: 10px;
   animation: ${SkeletonLoading} 0.7s linear infinite alternate;
 `;
