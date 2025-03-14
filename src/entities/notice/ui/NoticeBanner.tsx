@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import NoticeLoudSpeaker from '@/shared/assets/icons/main/loud-speaker.svg';
 import { Button } from '@/shared/components/button/Button';
-import { useToggle } from '@/shared/hooks';
 import NoticeModal from '@/widgets/notice/NoticeModal';
+import useToggle from '@/shared/hooks/action/useToggle';
 
 function NoticeBanner() {
   const { isOpen, toggle } = useToggle();

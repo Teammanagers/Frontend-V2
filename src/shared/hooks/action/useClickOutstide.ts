@@ -25,4 +25,4 @@ const useClickOutside = (
   }, [dropdownRef]);
 };
 
-export { useClickOutside };
+export default useClickOutside;

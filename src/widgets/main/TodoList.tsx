@@ -1,7 +1,7 @@
 import TodoProvider from '@/app/providers/TodoContext';
 import { RoutingButton } from '@/entities/main/ui/RoutingButton';
 import { Todo } from '@/entities/todo/ui';
-import { useToggle } from '@/shared/hooks';
+import useToggle from '@/shared/hooks/action/useToggle';
 import styled from 'styled-components';
 
 function TodoList() {
@@ -21,7 +21,7 @@ function TodoList() {
           <MyTodoTitle>내가 해야할 일</MyTodoTitle>
 
           <TodosWrapper>
-            {Array.from({ length: 4 }).map((_, idx) => (
+            {Array.from({ length: 10 }).map((_, idx) => (
               <TodoWrapper key={`todo-${idx}`}>
                 <Todo buttonType="menu">내가 해야할 일</Todo>
               </TodoWrapper>
@@ -46,7 +46,6 @@ const MyTodoListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 486px;
   background-color: ${({ theme }) => theme.colors.white};
   width: 518px;
   height: 222px;
@@ -65,6 +64,7 @@ const TodosWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 9px;
+  overflow: auto;
 `;
 
 const TodoWrapper = styled.li`

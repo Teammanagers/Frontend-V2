@@ -5,7 +5,7 @@ import { ITeamTodoList } from '@/entities/todo/todo.type';
 import { ImageUploadModal, Todo } from '@/entities/todo/ui';
 import { Accordion } from '@/shared/components/accordion';
 import TodoProvider from '@/app/providers/TodoContext';
-import { useToggle } from '@/shared/hooks';
+import useToggle from '@/shared/hooks/action/useToggle';
 
 export function TodoList() {
   const mockData = mocks.result.teamTodoList as ITeamTodoList[];

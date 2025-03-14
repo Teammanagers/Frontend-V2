@@ -2,7 +2,7 @@ import { ReactNode, useRef } from 'react';
 import styled from 'styled-components';
 import DropdownTrigger from './Trigger';
 import DropdownMenu from './Menu';
-import { useClickOutside } from '@/shared/hooks';
+import useClickOutside from '@/shared/hooks/action/useClickOutstide';
 
 interface IDropdown {
   children: ReactNode;
