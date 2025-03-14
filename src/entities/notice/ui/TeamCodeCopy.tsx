@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default function TeamCodeCopy() {
+function TeamCodeCopy() {
   const handleCopyClipBoard = () => {
     alert('팀 코드가 클립보드에 복사되었습니다.');
     navigator.clipboard.writeText('X65VRG34');
@@ -13,6 +13,8 @@ export default function TeamCodeCopy() {
     </Container>
   );
 }
+
+export { TeamCodeCopy };
 
 const Container = styled.div`
   display: flex;
