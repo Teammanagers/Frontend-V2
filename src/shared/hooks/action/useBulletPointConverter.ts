@@ -1,7 +1,4 @@
-interface IBulleetPointConverter {
-  e: React.KeyboardEvent<HTMLTextAreaElement>;
-  setInputValue: React.Dispatch<React.SetStateAction<string>>;
-}
+import { IBulleetPointConverter } from '@/shared/types';
 
 const useBulletPointConverter = ({
   e,
