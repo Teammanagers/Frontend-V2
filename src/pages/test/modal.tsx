@@ -1,5 +1,5 @@
 import Modal from '@/shared/components/modal/Modal';
-import { useToggle } from '@/shared/hooks';
+import useToggle from '@/shared/hooks/action/useToggle';
 import styled from 'styled-components';
 
 export function ModalTestPage() {

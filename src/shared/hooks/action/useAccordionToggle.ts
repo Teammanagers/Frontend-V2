@@ -22,4 +22,4 @@ const useAccordionToggle = () => {
   return { isOpen, parentRef, childRef, toggleAccrodion };
 };
 
-export { useAccordionToggle };
+export default useAccordionToggle;
