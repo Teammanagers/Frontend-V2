@@ -1,4 +1,4 @@
-import { IModal } from '@/shared/types/modal.types';
+import { IModal } from '@/shared/types';
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import styled, { keyframes } from 'styled-components';
@@ -89,6 +89,11 @@ const Dialog = styled.dialog<{ $isOpen: boolean }>`
   border: none;
   background-color: transparent;
   animation: ${({ $isOpen }) => ($isOpen ? fadeIn : fadeOut)} 0.4s ease;
+  outline: none;
+
+  $[open] {
+    outline: none;
+  }
 
   &[open]::backdrop {
     animation: ${showBackdrop} 0.4s ease;

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import arrowIcon from '@/shared/assets/common/routing-arrow.svg';
-import { IRoutingButtonProps } from '@/shared/types/components/routing-button.types';
+import { IRoutingButtonProps } from '../main.types';
 
 /**
  * RoutingButton 컴포넌트를 통해 라우팅.

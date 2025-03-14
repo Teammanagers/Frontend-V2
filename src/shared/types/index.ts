@@ -1,3 +1,6 @@
-export * from './accordion.types';
 export * from './button.types';
-export * from './modal.types';
+
+export * from './components.types';
+export * from './context.types';
+export * from './hooks.types';
+export * from './utils.types';
