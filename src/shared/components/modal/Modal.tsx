@@ -21,28 +21,26 @@ export default function Modal({ children, isOpen, toggle }: IModal) {
       dialogRef.current?.scrollTo({
         top: 0,
       });
-      document.body.style.overflow = 'hidden'; // 배경스크롤 방지
+      document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
     } else {
       const timer = setTimeout(() => {
         dialogRef.current?.close();
-        document.body.style.overflow = ''; // 배경 스크롤 방지
+        document.body.style.overflow = ''; // 배경 스크롤 허용
       }, 200); // 애니메이션 시간보다 조금 더 빠르게
 
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
 
+  const handleClickOutside = (e: React.MouseEvent<HTMLDialogElement>) => {
+    // 모달 바깥을 클릭하면 닫히도록
+    if ((e.target as any).nodeName === 'DIALOG') {
+      toggle();
+    }
+  };
+
   return createPortal(
-    <Dialog
-      $isOpen={isOpen}
-      onClick={(e) => {
-        // 모달 바깥을 클릭하면 닫히도록
-        if ((e.target as any).nodeName === 'DIALOG') {
-          toggle();
-        }
-      }}
-      ref={dialogRef}
-    >
+    <Dialog $isOpen={isOpen} onClick={handleClickOutside} ref={dialogRef}>
       {children}
     </Dialog>,
     document.body, // 모달을 body에 렌더링
