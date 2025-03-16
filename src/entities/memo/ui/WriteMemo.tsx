@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useSubmitMemo } from '@/entities/memo/lib/useSubmitMemo';
+import { useSubmitMemo } from '@/entities/memo/model/useSubmitMemo';
 import { MemoForm } from '@/entities/memo/ui/MemoForm.tsx';
 
 export const WriteMemo = () => {
