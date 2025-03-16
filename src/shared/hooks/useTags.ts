@@ -1,13 +1,33 @@
 import { KeyboardEvent, useEffect, useState } from 'react';
-import { TeamTag } from '@/shared/types/tag.types.ts';
+import { TagsProps, TeamTag } from '@/shared/types/tag.types.ts';
 
-interface TagsProps {
-  initialTags?: TeamTag[];
-  onEditTeamTag?: (tagId: number, newName: string) => void;
-  onCreateRoleTag?: (name: string) => void;
-  onEditRoleTag?: (tagId: number, newName: string) => void;
-  onDeleteRoleTag?: (tagId: number) => void;
-}
+/**
+ * 태그 생성, 수정, 삭제 할 수 있는 훅입니다.
+ * 주로 메모 태그 / 팀 관리 멤버 이름 태그에 사용됩니다.
+ * **리턴 값을 집중해서 봐주세요!**
+ *
+ * @param {object} options - 태그 관련 옵션 객체
+ * @param {TeamTag[]} [options.initialTags = []] - 초기 태그 배열
+ * @param {(tagId: number, newName: string) => void} [options.onEditTeamTag] - 팀 태그 수정 시 호출되는 콜백 함수
+ * @param {(name: string) => void} [options.onCreateRoleTag] - 역할 태그 생성 시 호출되는 콜백 함수
+ * @param {(tagId: number, newName: string) => void} [options.onEditRoleTag] - 역할 태그 수정 시 호출되는 콜백 함수
+ * @param {(tagId: number) => void} [options.onDeleteRoleTag] - 역할 태그 삭제 시 호출되는 콜백 함수
+ *
+ * @returns {object} - useTags 훅이 반환하는 객체
+ * @returns {TeamTag[]} tags - 현재 태그 목록
+ * @returns {boolean} showTagInput - 태그 입력창의 노출 여부
+ * @returns {string} newTag - 현재 입력 중인 태그 값
+ * @returns {number|null} editTagIndex - 수정 중인 태그의 인덱스 (수정 모드가 아닐 경우 null)
+ * @returns {(e: KeyboardEvent<HTMLInputElement>) => Promise<void>} handleAddTag - 태그 추가 핸들러
+ * @returns {(e: KeyboardEvent<HTMLInputElement>, index: number) => Promise<void>} handleEditTag - 태그 수정 핸들러
+ * @returns {(index: number) => void} startEditingTag - 태그 수정 모드로 전환하는 함수
+ * @returns {(index: number) => Promise<void>} handleDeleteTag - 태그 삭제 핸들러
+ * @returns {(tags: TeamTag[]) => void} setTags - 태그 배열을 업데이트하는 함수
+ * @returns {(show: boolean) => void} setShowTagInput - 태그 입력창 노출 여부를 업데이트하는 함수
+ * @returns {(index: number | null) => void} setEditTagIndex - 수정 중인 태그 인덱스를 업데이트하는 함수
+ * @returns {(tag: string) => void} setNewTag - 입력 중인 태그 값을 업데이트하는 함수
+ *
+ */
 
 export const useTags = ({
   initialTags = [],
