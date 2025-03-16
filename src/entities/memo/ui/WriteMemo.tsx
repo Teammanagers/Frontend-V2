@@ -5,7 +5,6 @@ import { MemoForm } from '@/entities/memo/ui/MemoForm.tsx';
 export const WriteMemo = () => {
   const navigate = useNavigate();
   const teamId = Number(localStorage.getItem('teamId'));
-  console.log(teamId);
 
   const { handleSubmit } = useSubmitMemo(teamId);
 
