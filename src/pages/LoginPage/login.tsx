@@ -1,3 +1,8 @@
 export function LoginPage() {
-  return <div>Login</div>;
+  return (
+    <div>
+      <p>로그인페이지</p>
+      <div>Wrapper</div>
+    </div>
+  );
 }
