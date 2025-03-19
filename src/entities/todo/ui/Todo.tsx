@@ -4,7 +4,7 @@ import { ButtonType, ITodo } from '../todo.type';
 import { Button } from './Button';
 import { TodoStatus } from './TodoStatus';
 import { ActionDropdown } from '../../../shared/components/dropdown/ActionDropdown';
-import { useToggle } from '@/shared/hooks';
+import useToggle from '@/shared/hooks/action/useToggle';
 
 /**
  * Todo 컴포넌트는 할 일 항목을 렌더링합니다.
