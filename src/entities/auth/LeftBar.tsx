@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import styled from 'styled-components';
+import type { Swiper as SwiperType } from 'swiper';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -9,11 +10,17 @@ import thirdImg from '@/shared/assets/common/login-third-slide.svg?url';
 
 export default function LeftBar() {
   const [swiperIdx, setSwiperIdx] = useState<number>(0);
+  const swiperRef = useRef<SwiperType | null>(null); // swiper는 큰 객체기 때문에 useState로 관리하면 큰 리렌더링 발생 가능성 -> 값이 변경돼도 리렌더링 필요없는 useRef 사용
   const IMAGE_ARRAY = [
     { id: 1, url: firstImg },
     { id: 2, url: secondImg },
     { id: 3, url: thirdImg },
   ];
+  const handleSlide = (idx: number) => {
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(idx);
+    }
+  };
   return (
     <LeftContainer>
       <SwiperWrapper>
@@ -22,8 +29,11 @@ export default function LeftBar() {
           autoplay={{ delay: 3000 }}
           loop
           slidesPerView={1}
-          navigation
-          pagination
+          onSwiper={(swiperObj) => {
+            // Swiper 사용 완료되면 onSwiper 콜백 -> swiper 인스턴스 제공
+            swiperRef.current = swiperObj;
+          }}
+          onSlideChange={(swiper) => setSwiperIdx(swiper.realIndex)}
         >
           {IMAGE_ARRAY.map((img) => (
             <SwiperSlide key={img.id}>
@@ -32,7 +42,12 @@ export default function LeftBar() {
           ))}
         </Swiper>
         <DotContainer>
-          <Dot $isActive={true}></Dot>
+          {IMAGE_ARRAY.map((_, idx) => (
+            <Dot
+              onClick={() => handleSlide(idx)}
+              $isActive={idx === swiperIdx}
+            ></Dot>
+          ))}
         </DotContainer>
       </SwiperWrapper>
     </LeftContainer>
