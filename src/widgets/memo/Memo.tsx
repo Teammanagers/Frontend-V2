@@ -1,6 +1,7 @@
-import { ButtonHTMLAttributes, useEffect, useState } from 'react';
+import { ButtonHTMLAttributes, useState } from 'react';
 import styled from 'styled-components';
 import DropDown from '@/entities/memo/assets/dropdown.svg';
+import Next from '@/entities/memo/assets/next-button.svg';
 import PinIcon from '@/entities/memo/assets/pin.svg';
 import { memoSizes } from '@/widgets/memo/memo.constants.ts';
 
@@ -15,12 +16,9 @@ import { memoSizes } from '@/widgets/memo/memo.constants.ts';
 
 export const Memo = ({ size }: { size: keyof typeof memoSizes }) => {
   const [isPinned, setIsPinned] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState<boolean>(false);
 
   const selectedSize = memoSizes[size];
-
-  useEffect(() => {
-    console.log(isPinned);
-  }, [isPinned]);
 
   return (
     <MemoContainer $size={selectedSize} $pinned={isPinned}>
@@ -40,11 +38,19 @@ export const Memo = ({ size }: { size: keyof typeof memoSizes }) => {
         {/*{tagList.map((tag: TagProps) => (*/}
         <TagBox>태그</TagBox>
         <TagBox>하이루</TagBox>
-        {/*))}*/}
       </TagContainer>
       <MemoContentContainer>
-        <Content>내용</Content>
+        <Content>
+          내용길어지면어디까지뜨지흠냘ㅇ너ㅏㅁㄹㄴㅇ아러아러아러ㅏㅇ러ㅏ
+        </Content>
       </MemoContentContainer>
+      {size === 'small' && (
+        <NextBtn
+          $active={isActive}
+          onMouseLeave={() => setIsActive(false)}
+          onMouseDown={() => setIsActive(true)}
+        />
+      )}
     </MemoContainer>
   );
 };
@@ -53,6 +59,7 @@ const MemoContainer = styled.div<{
   $size: (typeof memoSizes)[keyof typeof memoSizes];
   $pinned: boolean;
 }>`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,7 +88,7 @@ const PinBtn = styled(PinIcon)<
 >`
   cursor: pointer;
   margin-right: 8px;
-  /* 기본 색상은 흰색, 고정 상태면 theme.colors.mainBlue 적용 */
+  // 해당 부분 이미지 이상함,,
   fill: ${({ theme, $pinned }) => ($pinned ? theme.colors.mainBlue : 'white')};
 `;
 const MenuBtn = styled(DropDown)<ButtonHTMLAttributes<HTMLButtonElement>>`
@@ -142,4 +149,21 @@ const Content = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+const NextBtn = styled(Next)<
+  ButtonHTMLAttributes<HTMLButtonElement> & { $active: boolean }
+>`
+  position: absolute;
+  right: 0;
+  top: 50%;
+  opacity: 0;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  stroke: ${({ theme, $active }) =>
+    $active ? theme.colors.mainBlue : '#999999'};
+
+  ${MemoContainer}:hover & {
+    opacity: 1;
+  }
 `;
