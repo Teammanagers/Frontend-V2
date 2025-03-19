@@ -88,8 +88,9 @@ const PinBtn = styled(PinIcon)<
 >`
   cursor: pointer;
   margin-right: 8px;
-  // 해당 부분 이미지 이상함,,
-  fill: ${({ theme, $pinned }) => ($pinned ? theme.colors.mainBlue : 'white')};
+  fill: ${({ theme, $pinned }) => ($pinned ? theme.colors.subBlue : 'white')};
+  stroke: ${({ theme, $pinned }) =>
+    $pinned ? theme.colors.mainBlue : theme.colors.darkGray};
 `;
 const MenuBtn = styled(DropDown)<ButtonHTMLAttributes<HTMLButtonElement>>`
   cursor: pointer;
