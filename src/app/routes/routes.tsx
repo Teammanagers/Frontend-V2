@@ -8,7 +8,6 @@ import { MyPage } from '@/pages/MyPage';
 import { SharePage } from '@/pages/SharePage';
 import { SignupPage } from '@/pages/SignupPage';
 import { TeamPage } from '@/pages/TeamPage';
-import { ModalTestPage } from '@/pages/test/modal';
 import { TodoPage } from '@/pages/TodoPage';
 import { Route, Routes } from 'react-router-dom';
 
@@ -37,8 +36,6 @@ export default function AppRoutes() {
         {/* My Page */}
         <Route path="/mypage" element={<MyPage />} />
 
-        {/* Modal Test Page */}
-        <Route path="/test/modal" element={<ModalTestPage />} />
         {/* Error Page */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>

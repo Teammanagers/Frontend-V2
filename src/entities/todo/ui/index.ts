@@ -1,4 +1,4 @@
-export * from './ActionDropdown';
+export * from '../../../shared/components/dropdown/ActionDropdown';
 export * from './Todo';
 export * from './Button';
 export * from './TodoStatus';
