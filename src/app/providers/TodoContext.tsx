@@ -1,7 +1,4 @@
-import {
-  ITodoContextProvider,
-  ITodoContextValue,
-} from '@/shared/types/context/todo-context.types';
+import { ITodoContextProvider, ITodoContextValue } from '@/shared/types';
 import { createContext } from 'react';
 
 export const TodoContext = createContext<ITodoContextValue | null>(null);

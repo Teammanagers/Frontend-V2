@@ -26,7 +26,7 @@ export default function AppRoutes() {
         {/* Calendar Page */}
         <Route path="/calendar" element={<CalendarPage />} />
         {/* Todo Page */}
-        <Route path="/todo" element={<TodoPage />} />
+        <Route path="/todo-list" element={<TodoPage />} />
         {/* Memo Page */}
         <Route path="/memo" element={<MemoPage />} />
         {/* Share Page */}

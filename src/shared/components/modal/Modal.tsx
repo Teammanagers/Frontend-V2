@@ -1,4 +1,4 @@
-import { IModalProps } from '@/shared/types';
+import { IModal } from '@/shared/types';
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import styled, { keyframes } from 'styled-components';
@@ -11,7 +11,7 @@ import styled, { keyframes } from 'styled-components';
  * @param {ReactNode} children - 모달의 내용
  */
 
-export default function Modal({ children, isOpen, toggle }: IModalProps) {
+export default function Modal({ children, isOpen, toggle }: IModal) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   // 모달 열고 닫는 기본 로직
@@ -21,28 +21,26 @@ export default function Modal({ children, isOpen, toggle }: IModalProps) {
       dialogRef.current?.scrollTo({
         top: 0,
       });
-      document.body.style.overflow = 'hidden'; // 배경스크롤 방지
+      document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
     } else {
       const timer = setTimeout(() => {
         dialogRef.current?.close();
-        document.body.style.overflow = ''; // 배경 스크롤 방지
+        document.body.style.overflow = ''; // 배경 스크롤 허용
       }, 200); // 애니메이션 시간보다 조금 더 빠르게
 
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
 
+  const handleClickOutside = (e: React.MouseEvent<HTMLDialogElement>) => {
+    // 모달 바깥을 클릭하면 닫히도록
+    if ((e.target as any).nodeName === 'DIALOG') {
+      toggle();
+    }
+  };
+
   return createPortal(
-    <Dialog
-      $isOpen={isOpen}
-      onClick={(e) => {
-        // 모달 바깥을 클릭하면 닫히도록
-        if ((e.target as any).nodeName === 'DIALOG') {
-          toggle();
-        }
-      }}
-      ref={dialogRef}
-    >
+    <Dialog $isOpen={isOpen} onClick={handleClickOutside} ref={dialogRef}>
       {children}
     </Dialog>,
     document.body, // 모달을 body에 렌더링
@@ -89,6 +87,11 @@ const Dialog = styled.dialog<{ $isOpen: boolean }>`
   border: none;
   background-color: transparent;
   animation: ${({ $isOpen }) => ($isOpen ? fadeIn : fadeOut)} 0.4s ease;
+  outline: none;
+
+  $[open] {
+    outline: none;
+  }
 
   &[open]::backdrop {
     animation: ${showBackdrop} 0.4s ease;
