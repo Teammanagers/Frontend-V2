@@ -8,3 +8,8 @@ export interface MemoFormProps {
   onDelete?: () => void; // EditMemo에서 사용
   showDeleteButton?: boolean;
 }
+
+export interface DeleteModalProps {
+  type: 'folder' | 'memo';
+  title: string;
+}
