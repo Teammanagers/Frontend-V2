@@ -1,4 +1,4 @@
-import { ISkeletonProps } from '@/shared/types/components/skeleton.types';
+import { ISkeletonProps } from '@/shared/types';
 import styled, { keyframes } from 'styled-components';
 
 /**

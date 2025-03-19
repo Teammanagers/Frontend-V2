@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import dropdownIcon from '@/shared/assets/icons/dropdown.svg';
-import { Dropdown } from '@/shared/components/dropdown';
-import { IActionDropdownProps } from '@/shared/types/components';
+import Dropdown from './plate/Dropdown';
+import { IActionDropdownProps } from '@/shared/types';
 
 /**
  * ActionDropdown 컴포넌트는 수정 및 삭제 버튼을 포함한 드롭다운 메뉴를 렌더링합니다.
