@@ -4,6 +4,15 @@ import DropDown from '@/entities/memo/assets/dropdown.svg';
 import PinIcon from '@/entities/memo/assets/pin.svg';
 import { memoSizes } from '@/widgets/memo/memo.constants.ts';
 
+/**
+ * @example
+ * ```tsx
+ *    <Memo size="small" />
+ *   ```
+ *
+ * @param {'small' | 'large'} size - small은 메인에서, large는 메모에서 사용됩니다.
+ */
+
 export const Memo = ({ size }: { size: keyof typeof memoSizes }) => {
   const [isPinned, setIsPinned] = useState<boolean>(false);
 
