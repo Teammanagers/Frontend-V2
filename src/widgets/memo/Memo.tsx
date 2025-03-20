@@ -1,8 +1,8 @@
 import { ButtonHTMLAttributes, useState } from 'react';
 import styled from 'styled-components';
-import DropDown from '@/entities/memo/assets/dropdown.svg';
-import Next from '@/entities/memo/assets/next-button.svg';
-import PinIcon from '@/entities/memo/assets/pin.svg';
+import DropDown from '@/entities/memo/assets/dropdown.svg?react';
+import Next from '@/entities/memo/assets/next-button.svg?react';
+import PinIcon from '@/entities/memo/assets/pin.svg?react';
 import { memoSizes } from '@/widgets/memo/memo.constants.ts';
 
 /**

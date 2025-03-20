@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import AddIcon from '@/entities/memo/assets/add-memo.svg';
-import Plus from '@/entities/memo/assets/plus.svg';
+import AddIcon from '@/entities/memo/assets/add-memo.svg?react';
+import Plus from '@/entities/memo/assets/plus.svg?react';
 
 export const AddMemo = () => {
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import AddMemoIcon from '@/entities/memo/assets/plus.svg';
+import AddMemoIcon from '@/entities/memo/assets/plus.svg?react';
 
 export const AddButton = () => {
   return (
