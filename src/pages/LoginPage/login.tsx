@@ -1,5 +1,5 @@
-import LoginWrapper from '@/widgets/login/LoginWrapper';
 import styled from 'styled-components';
+import LoginWrapper from '@/widgets/login/LoginWrapper';
 
 export function LoginPage() {
   return (
