@@ -13,3 +13,8 @@ export interface DeleteModalProps {
   type: 'folder' | 'memo';
   title: string;
 }
+
+export interface FolderModalProps {
+  mode: 'create' | 'edit';
+  currentName?: string;
+}
