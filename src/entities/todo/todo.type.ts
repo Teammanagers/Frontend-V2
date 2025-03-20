@@ -36,6 +36,11 @@ interface IImageUplaodModalProps {
   toggle: () => void;
 }
 
+interface IProgressStatusBadge {
+  title: string;
+  count: number;
+}
+
 export type {
   Status,
   ITodo,
@@ -43,4 +48,5 @@ export type {
   ITeamTodoList,
   ITodoStatus,
   IImageUplaodModalProps,
+  IProgressStatusBadge,
 };
