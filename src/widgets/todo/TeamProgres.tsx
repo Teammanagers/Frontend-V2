@@ -1,4 +1,4 @@
-import { statusLabel } from '@/entities/todo/constants/status-label';
+import { statusLabel } from '@/entities/todo/constants/todo';
 import { ProgressBar, ProgressStatusBadge } from '@/entities/todo/ui';
 import styled from 'styled-components';
 
@@ -12,7 +12,7 @@ export default function TeamProgres() {
           <ProgressStatusBadge status={status} key={`${status}`} />
         ))}
       </StatusLabelWrapper>
-      <ProgressBar status={statusLabel} />
+      <ProgressBar />
     </Container>
   );
 }
