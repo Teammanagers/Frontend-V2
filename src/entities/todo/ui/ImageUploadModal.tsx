@@ -1,7 +1,7 @@
 import Modal from '@/shared/components/modal/Modal';
 import styled from 'styled-components';
 import { IImageUplaodModalProps } from '../todo.type';
-import imageUploadIcon from '@/shared/assets/icons/image-upload.svg';
+import ImageUploadIcon from '@/shared/assets/todo/image-upload.svg?react';
 
 function ImageUploadModal({ isOpen, toggle }: IImageUplaodModalProps) {
   return (
@@ -11,7 +11,7 @@ function ImageUploadModal({ isOpen, toggle }: IImageUplaodModalProps) {
           <UploadImage>
             <strong>인증사진 업로드</strong>
             <IconWrapper>
-              <img src={imageUploadIcon} alt="image-upload-icon" />
+              <ImageUploadIcon />
             </IconWrapper>
           </UploadImage>
 

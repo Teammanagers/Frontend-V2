@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import dropdownIcon from '@/shared/assets/icons/dropdown.svg';
+import DropdownMenuIcon from '@/shared/assets/common/dropdown-menu.svg?react';
 import Dropdown from './plate/Dropdown';
 import { IActionDropdownProps } from '@/shared/types';
 
@@ -50,7 +50,7 @@ function ActionDropdown({
   return (
     <Dropdown setIsOpen={setIsOpen}>
       <Dropdown.Trigger onClick={toggle}>
-        <img src={dropdownIcon} />
+        <DropdownMenuIcon />
       </Dropdown.Trigger>
 
       <Dropdown.Menu isOpen={isOpen} top="10px" left="-50%">

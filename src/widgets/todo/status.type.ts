@@ -1,6 +1,6 @@
-interface IStatusBadge {
+interface IProgressStatusBadge {
   title: string;
   count: number;
 }
 
-export type { IStatusBadge };
+export type { IProgressStatusBadge };

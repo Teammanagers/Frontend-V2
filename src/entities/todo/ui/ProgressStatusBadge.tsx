@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import checkIcon from '@/shared/assets/icons/check.svg';
-import { IStatusBadge } from '@/widgets/todo/status.type';
+import CheckIcon from '@/shared/assets/todo/check.svg?react';
+import { IProgressStatusBadge } from '@/widgets/todo/status.type';
 
 //진행 전, 진행 중, 완료 상태를 나타내는 배지 컴포넌트
 
-function StatusBadge({ status }: { status: IStatusBadge }) {
+function ProgressStatusBadge({ status }: { status: IProgressStatusBadge }) {
   return (
     <Container>
       <StatusLabel $status={status.title}>
@@ -14,7 +14,7 @@ function StatusBadge({ status }: { status: IStatusBadge }) {
           </ProceedingBarWrapper>
         ) : status.title === '진행 전' || status.title === '완료' ? (
           <IconWrapper>
-            <img src={checkIcon} alt="check icon" />
+            <CheckIcon />
           </IconWrapper>
         ) : null}
         {status.title}
@@ -24,7 +24,7 @@ function StatusBadge({ status }: { status: IStatusBadge }) {
   );
 }
 
-export { StatusBadge };
+export { ProgressStatusBadge };
 
 const Container = styled.div`
   display: flex;
