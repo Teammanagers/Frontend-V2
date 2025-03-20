@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import CheckIcon from '@/shared/assets/todo/check.svg?react';
-import { IProgressStatusBadge } from '@/widgets/todo/status.type';
+import { IProgressStatusBadge } from '../todo.type';
 
 //진행 전, 진행 중, 완료 상태를 나타내는 배지 컴포넌트
 
