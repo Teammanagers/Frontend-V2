@@ -1,14 +1,5 @@
-import { ReactNode } from 'react';
+import { IDropdownMenu } from '@/shared/types';
 import styled from 'styled-components';
-
-interface IDropdownMenu {
-  children: ReactNode;
-  isOpen: boolean;
-  top?: string;
-  right?: string;
-  bottom?: string;
-  left?: string;
-}
 
 /**
  * DropdownMenu 컴포넌트는 드롭다운 메뉴 항목을 위한 컨테이너를 제공합니다.

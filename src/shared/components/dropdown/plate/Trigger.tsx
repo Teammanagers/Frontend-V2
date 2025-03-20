@@ -1,10 +1,5 @@
-import { ReactNode } from 'react';
+import { IDropdownTrigger } from '@/shared/types';
 import styled from 'styled-components';
-
-export interface IDropdownTrigger {
-  children: ReactNode;
-  onClick: () => void;
-}
 
 /**
  * DropdownTrigger 컴포넌트는 드롭다운 트리거를 위한 컨테이너를 제공합니다.
