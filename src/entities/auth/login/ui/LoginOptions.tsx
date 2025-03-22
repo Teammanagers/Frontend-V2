@@ -16,15 +16,15 @@ export default function LoginOptions() {
       <Options>
         <LoginBtn>
           <img />
-          <LoginSpan></LoginSpan>
+          <LoginSpan>카카오로 1초만에 로그인하기</LoginSpan>
         </LoginBtn>
         <LoginBtn>
           <img />
-          <LoginSpan></LoginSpan>
+          <LoginSpan>네이버로 1초만에 로그인하기</LoginSpan>
         </LoginBtn>
         <LoginBtn>
           <img />
-          <LoginSpan></LoginSpan>
+          <LoginSpan>구글로 1초만에 로그인하기</LoginSpan>
         </LoginBtn>
       </Options>
     </Container>
